@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<table class="table table-bordered">
+    <tr><th colspan="5" class="text-center"><h2>Your Orders</h2></th></tr>
+
+            {% for i in c %}
+
+<tr>
+        <td> <img src="{{i.product.image.url}}" height="150px" width="150px"></td>
+    <td><b>Customer Name:{{user.username}}</b></br>
+         <b>Delivery Address:{{i.address}}</b></br>
+        <b>Phone Number:{{i.phone}}</b></br>
+        <b>Product:{{i.product.name}}</b></br>
+            <b>Price:{{i.product.price}}</b></br>
+            <b>Date_ordered:{{i.date_ordered}}</b></br>
+            <b>Delivery_status:<span{{i.delivery_status}}</b>
+        </td>
+    </tr>
+{% endfor %}
+{% endblock %}
